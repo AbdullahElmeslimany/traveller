@@ -1,10 +1,34 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'change_email/change_email.dart';
+import 'change_password/change_password.dart';
+import 'name_change/name_change.dart';
 
-import '../../../model/listprofile.dart';
+bodyItems({required StateStreamableSource cubit}) {
+  List profileitem = [
 
-bodyItems() {
+    {
+      "name": "Name",
+      "icon": Icons.phone,
+      "text": "Ahmad",
+      "nav": nameChangeSheetButton(cubit: cubit)
+    },
+    {
+      "name": "البريد الالكتروني",
+      "icon": Icons.email,
+      "text": "Ahmed@gmail.com",
+      "nav": emailChangeSheetButton(cubit: cubit)
+    },
+
+    {
+      "name": "Change Password",
+      "icon": Icons.password,
+      "text": "•••••••••••••••••",
+      "nav": passWordChangeSheetButton(cubit: cubit)
+    },
+
+  ];
+
   return Directionality(
     textDirection: TextDirection.rtl,
     child: SizedBox(

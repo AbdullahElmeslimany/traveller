@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:traveller/modelview/cubit/Add_Project_cubit/add_project_cubit.dart';
+import 'package:traveller/modelview/cubit/Add_Project_cubit/add_place_cubit.dart';
 
-import '../../controller/cubit_image/select_image_cubit.dart';
+import '../../modelview/controller/cubit_image/select_image_cubit.dart';
 import '../../model/textfromfieldcustom.dart';
 import 'helper/card_search.dart';
 

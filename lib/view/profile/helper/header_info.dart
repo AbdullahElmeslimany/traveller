@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'name_change/name_change.dart';
 
-headerInfo(BuildContext context) {
+headerInfo(BuildContext context, {required cubit}) {
   return Row(
     children: [
       ClipRRect(
@@ -19,7 +19,7 @@ headerInfo(BuildContext context) {
             ),
             context: context,
             builder: (context) {
-              return nameChangeSheetButton();
+              return nameChangeSheetButton(cubit: cubit);
             },
           );
         },

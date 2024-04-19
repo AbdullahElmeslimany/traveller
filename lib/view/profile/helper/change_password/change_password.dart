@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:traveller/model/textfromfieldcustom.dart';
 
-passWordChangeSheetButton() {
+passWordChangeSheetButton({required cubit}) {
   TextEditingController passNewchange = TextEditingController();
   TextEditingController passOldchange = TextEditingController();
   GlobalKey<FormState> passChangeSheet = GlobalKey<FormState>();

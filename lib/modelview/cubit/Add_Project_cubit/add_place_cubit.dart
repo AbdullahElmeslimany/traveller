@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 
-part 'add_project_state.dart';
+part 'add_place_state.dart';
 
 class AddPlaceCubit extends Cubit<AddPlaceState> {
   AddPlaceCubit() : super(AddPlaceInitial());
@@ -16,7 +16,7 @@ class AddPlaceCubit extends Cubit<AddPlaceState> {
     required String place,
   }) async {
     CollectionReference project =
-        FirebaseFirestore.instance.collection('place');
+        FirebaseFirestore.instance.collection('places');
     await project.add({
       'name': name,
       'time': time,

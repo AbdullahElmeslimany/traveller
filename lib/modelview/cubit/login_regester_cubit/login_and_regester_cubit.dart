@@ -41,8 +41,11 @@ class LoginAndRegesterCubit extends Cubit<LoginAndRegesterState> {
       {required String email,
       required String password,
       required String name,
-      required String idunversty,
       required bool admin}) async {
+    print(email);
+    print(password);
+    print(name);
+    print(admin);
     loading = true;
     emit(WaitingState());
 
@@ -62,10 +65,9 @@ class LoginAndRegesterCubit extends Cubit<LoginAndRegesterState> {
       )
           .then((value) {
         print(value.user!.uid);
-        FirebaseFirestore.instance.collection("user").add({
+        FirebaseFirestore.instance.collection("users").add({
           "email": email,
           "name": name,
-          "idunversty": idunversty,
           "admin": admin,
           "Uid": value.user!.uid
         });
@@ -83,6 +85,7 @@ class LoginAndRegesterCubit extends Cubit<LoginAndRegesterState> {
         emit(ErrorState(message: "البريد الالكتروني مستخدم بالفعل"));
       }
     } catch (e) {
+      print(e);
       emit(ErrorState(message: e.toString()));
     }
     Future.delayed(

@@ -3,9 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:traveller/view/home/homepage.dart';
 import 'package:traveller/view/login_signup/regester.dart';
-import '../../controller/controller/login_controller.dart';
+import '../../modelview/controller/controller/login_controller.dart';
 import '../../model/textfromfieldcustom.dart';
 import '../../modelview/cubit/login_regester_cubit/login_and_regester_cubit.dart';
 
@@ -72,6 +71,8 @@ class LoginPage extends StatelessWidget {
                                         width:
                                             MediaQuery.sizeOf(context).width -
                                                 50,
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         controller: emailController,
                                         text: ""),
                                     const Gap(17),
@@ -86,6 +87,8 @@ class LoginPage extends StatelessWidget {
                                         width:
                                             MediaQuery.sizeOf(context).width -
                                                 50,
+                                        keyboardType:
+                                            TextInputType.visiblePassword,
                                         controller: passwordController,
                                         text: ""),
                                     const Gap(8),
@@ -111,10 +114,9 @@ class LoginPage extends StatelessWidget {
                                 ),
                                 onPressed: () async {
                                   if (loginkey.currentState!.validate()) {
-                                    Get.to(const MyHomePage());
-                                    // cubit.login(
-                                    //     email: emailController.text,
-                                    //     password: passwordController.text);
+                                    cubit.login(
+                                        email: emailController.text,
+                                        password: passwordController.text);
                                   }
                                 },
                               ),

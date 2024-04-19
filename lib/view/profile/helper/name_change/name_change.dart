@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:traveller/model/textfromfieldcustom.dart';
 
-nameChangeSheetButton() {
+nameChangeSheetButton({required StateStreamableSource cubit}) {
   TextEditingController firstname = TextEditingController();
   TextEditingController lastname = TextEditingController();
   GlobalKey<FormState> namechangesheet = GlobalKey<FormState>();
@@ -35,6 +36,7 @@ nameChangeSheetButton() {
                   child: MaterialButton(
                       onPressed: () {
                         if (namechangesheet.currentState!.validate()) {
+                          // cubit.add(firstname.text);
                           Get.back();
                         }
                       },

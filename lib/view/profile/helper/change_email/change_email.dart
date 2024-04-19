@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:traveller/model/textfromfieldcustom.dart';
 
-emailChangeSheetButton() {
+emailChangeSheetButton({required cubit}) {
   TextEditingController email = TextEditingController();
   GlobalKey<FormState> emailchangesheet = GlobalKey<FormState>();
   return Container(

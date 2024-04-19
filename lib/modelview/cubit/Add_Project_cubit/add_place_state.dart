@@ -1,4 +1,4 @@
-part of 'add_project_cubit.dart';
+part of 'add_place_cubit.dart';
 
 @immutable
 sealed class AddPlaceState {}
