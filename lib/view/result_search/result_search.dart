@@ -94,7 +94,7 @@ class ResiltSearchPage extends StatelessWidget {
                               return InkWell(
                                 onTap: () {
                                   Get.to(DetialslsPlease(
-                                      name: cubit.dataList[index]["name"],
+                                      name: cubit.dataList[index]['name'],
                                       image: suggestList[index]["image"],
                                       time: "15",
                                       detials: "detials"));
