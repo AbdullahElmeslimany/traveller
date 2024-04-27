@@ -6,7 +6,7 @@ import 'package:traveller/model/textfromfieldcustom.dart';
 
 nameChangeSheetButton({required StateStreamableSource cubit}) {
   TextEditingController firstname = TextEditingController();
-  TextEditingController lastname = TextEditingController();
+  // TextEditingController lastname = TextEditingController();
   GlobalKey<FormState> namechangesheet = GlobalKey<FormState>();
   return Container(
     // height: 1500,
@@ -40,7 +40,7 @@ nameChangeSheetButton({required StateStreamableSource cubit}) {
                           Get.back();
                         }
                       },
-                      child: Text("Save")),
+                      child: const Text("Save")),
                 ),
               ],
             )

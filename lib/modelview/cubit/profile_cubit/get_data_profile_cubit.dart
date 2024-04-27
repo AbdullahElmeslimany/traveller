@@ -32,7 +32,7 @@ class GetDataProfileCubit extends Cubit<GetDataProfileState> {
       required String idunversty}) async {
     print(uID);
     // emit(WaitingProfileState());
-    final users = await FirebaseFirestore.instance
+    await FirebaseFirestore.instance
         .collection('user')
         .doc(uID)
         .update({'email': email, 'name': name, 'idunversty': idunversty}).then(

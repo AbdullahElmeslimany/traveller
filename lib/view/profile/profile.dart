@@ -10,11 +10,11 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final  cubit = BlocProvider.of<GetDataProfileCubit>(context);
+    final cubit = BlocProvider.of<GetDataProfileCubit>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("الحساب"),
+        title: const Text("الحساب"),
         centerTitle: true,
       ),
       body: SafeArea(

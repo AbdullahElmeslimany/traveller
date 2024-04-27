@@ -8,7 +8,7 @@ headerInfo(BuildContext context, {required cubit}) {
     children: [
       ClipRRect(
         borderRadius: BorderRadius.circular(50),
-        child: Icon(Icons.person),
+        child: const Icon(Icons.person),
       ),
       InkWell(
         onTap: () {
@@ -23,7 +23,7 @@ headerInfo(BuildContext context, {required cubit}) {
             },
           );
         },
-        child: Column(
+        child: const Column(
           children: [Text("Dominic Ovo"), Text("@dominic_ovo")],
         ),
       )

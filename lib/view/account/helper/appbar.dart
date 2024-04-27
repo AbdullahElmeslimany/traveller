@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 appBar() {
+  // ignore: prefer_const_constructors
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
+    children: const [
       Padding(
-        padding: const EdgeInsets.only(
+        padding: EdgeInsets.only(
           top: 35,
           left: 26,
           bottom: 28,

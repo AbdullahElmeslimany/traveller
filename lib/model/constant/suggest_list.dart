@@ -4,6 +4,7 @@ List suggestList = [
     "image": "assets/images/mountsinai.jpg",
     "location": "سيناء",
     "description": "",
+    "video": "",
     "navagator": ""
   },
   {

@@ -1,12 +1,14 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:traveller/model/constant/suggest_list.dart';
+import 'package:traveller/modelview/cubit/categoris_cubit/get_places_data_cubit.dart';
 
 import '../../detials_places/detials_places.dart';
 
-suggestHomePage() {
+suggestHomePage(data) {
   return Container(
     margin: const EdgeInsets.only(top: 15, right: 10),
     child: Column(
@@ -41,71 +43,80 @@ suggestHomePage() {
             // decoration: const BoxDecoration(color: Color.fromARGB(123, 255, 255, 255)),
             margin: const EdgeInsets.only(top: 10, bottom: 10),
             height: 135,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 5,
-              itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () {
-                    Get.to(DetialslsPlease(
-                        name: suggestList[index]["name"],
-                        image: suggestList[index]["image"],
-                        time: "time",
-                        detials: "detials"));
-                  },
-                  child: Container(
-                    // padding: const EdgeInsets.all(9),
-                    margin: const EdgeInsets.only(left: 10),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(13),
-                        color: Colors.white),
-                    height: 80,
-                    width: 105,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: ClipRRect(
+            child: BlocBuilder<GetPlacesDataCubit, GetPlacesDataState>(
+              builder: (context, state) {
+                return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: data.dataListAll.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return InkWell(
+                      onTap: () {
+                        Get.to(DetialslsPlease(
+                            data: data.dataListAll[index],
+                            video:
+                                "https://firebasestorage.googleapis.com/v0/b/traveller-36475.appspot.com/o/Let's%20Go%20-%20Egypt%20-%20A%20Beautiful%20Destinations%20Original.mp4?alt=media&token=ec0ee8c8-f216-442a-8f7f-cd7463f40c27",
+                            name: data.dataListAll[index]["name"].toString(),
+                            image: data.dataListAll[index]["photo"].toString(),
+                            time: data.dataListAll[index]["time"].toString(),
+                            detials:
+                                data.dataListAll[index]["time"].toString()));
+                      },
+                      child: Container(
+                        // padding: const EdgeInsets.all(9),
+                        margin: const EdgeInsets.only(left: 10),
+                        decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(13),
-                            child: Image.asset(
-                              suggestList[index]["image"],
-                              height: 50,
-                              fit: BoxFit.fill,
+                            color: Colors.white),
+                        height: 80,
+                        width: 105,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(13),
+                                child: Image.network(
+                                  data.dataListAll[index]["photo"][0]
+                                      .toString(),
+                                  height: 50,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        const Gap(3),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 5),
-                          child: Text(
-                            suggestList[index]["name"],
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 11),
-                          ),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.all(4),
-                          child: Row(
-                            children: [
-                              const Icon(
-                                Icons.location_on,
-                                size: 17,
-                                color: Colors.orange,
-                              ),
-                              Text(
-                                suggestList[index]["location"].toString(),
+                            const Gap(3),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 5),
+                              child: Text(
+                                data.dataListAll[index]["name"].toString(),
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 10,
-                                    color: Colors.grey),
+                                    fontWeight: FontWeight.bold, fontSize: 11),
                               ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.all(4),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.location_on,
+                                    size: 17,
+                                    color: Colors.orange,
+                                  ),
+                                  Text(
+                                    data.dataListAll[index]["place"].toString(),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 10,
+                                        color: Colors.grey),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                 );
               },
             ),

@@ -9,11 +9,15 @@ import 'package:traveller/view/home/homepage_helper/categories_homepage.dart';
 import 'package:traveller/view/home/homepage_helper/suggestion_homepage.dart';
 import 'package:traveller/modelview/dropdown_and_search/dropdown_and_search.dart';
 
+import '../../modelview/cubit/categoris_cubit/get_places_data_cubit.dart';
+
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<GetPostionCubit>(context);
+    final cubitData = BlocProvider.of<GetPlacesDataCubit>(context);
+    cubitData.getDataAll();
     //get Gps
     cubit.getPostion();
     return Directionality(
@@ -45,7 +49,7 @@ class MyHomePage extends StatelessWidget {
                     const Gap(10),
                     dropDownAndSearch(),
                     categoriesHomePage(),
-                    suggestHomePage(),
+                    suggestHomePage(cubitData),
                     benefitsCard(context)
                   ],
                 )

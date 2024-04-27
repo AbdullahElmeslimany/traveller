@@ -73,9 +73,7 @@ class ResiltSearchPage extends StatelessWidget {
                   ),
                 ),
                 BlocConsumer<GetPlacesDataCubit, GetPlacesDataState>(
-                  listener: (context, state) {
-                    // TODO: implement listener
-                  },
+                  listener: (context, state) {},
                   builder: (context, state) {
                     if (state is WaitingDataState) {
                       return const Center(child: CircularProgressIndicator());
@@ -94,9 +92,12 @@ class ResiltSearchPage extends StatelessWidget {
                               return InkWell(
                                 onTap: () {
                                   Get.to(DetialslsPlease(
+                                      // photo: cubit.dataList[index]['photo'],
+                                      video: cubit.dataList[index]['video'],
                                       name: cubit.dataList[index]['name'],
                                       image: suggestList[index]["image"],
                                       time: "15",
+                                      data: cubit.dataList[index],
                                       detials: "detials"));
                                 },
                                 child: Container(
@@ -123,7 +124,7 @@ class ResiltSearchPage extends StatelessWidget {
                                                     cubit.dataList[index]
                                                         ["name"],
                                                     style: const TextStyle(
-                                                        fontSize: 16,
+                                                        fontSize: 14,
                                                         fontWeight:
                                                             FontWeight.bold),
                                                   ),

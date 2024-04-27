@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:traveller/view/home/homepage.dart';
 import 'package:traveller/view/login_signup/login.dart';
 import '../../modelview/controller/controller/regester_controller.dart';
 import '../../model/textfromfieldcustom.dart';
