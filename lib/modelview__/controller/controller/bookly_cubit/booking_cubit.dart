@@ -22,7 +22,8 @@ class BookingCubit extends Cubit<BookingState> {
       required person,
       required room,
       required place,
-      required id}) async {
+      required id,
+      required String hotel}) async {
     FirebaseFirestore.instance.collection("Booking").add({
       "priceLow": currentRangeValues.start,
       "priceHigh": currentRangeValues.end,
@@ -32,6 +33,7 @@ class BookingCubit extends Cubit<BookingState> {
       "person": person,
       "room": room,
       "id": id,
+      "hotel": hotel
     }).then((value) {
       Get.snackbar("تم الحجز بنجاح", "");
       Get.offAll(const MyHomePage());

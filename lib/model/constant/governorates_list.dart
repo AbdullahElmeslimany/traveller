@@ -30,3 +30,13 @@ const List<Governorates> listGovernorates = [
   Governorates('الواحات'),
   Governorates('الوادي الجديد'),
 ];
+
+const List<Governorates> hotels = [
+  Governorates('Sun Rise Hotel'),
+  Governorates('Helton Hotel'),
+  Governorates('Sonesta Hotel'),
+  Governorates('Casio Hotel'),
+  Governorates('Four Stars Hotel'),
+  Governorates('Elmasa Hotel'),
+  Governorates('Grand Night Hotel'),
+];

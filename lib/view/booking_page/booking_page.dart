@@ -50,6 +50,11 @@ class BookingPage extends StatelessWidget {
                             value: cubit.data[index]["room"]),
                         const Gap(10),
                         fieldCustom(
+                            key: " الفندق : ",
+                            index,
+                            value: cubit.data[index]["hotel"]),
+                        const Gap(10),
+                        fieldCustom(
                             key: "عدد الاشخاص : ",
                             index,
                             value: cubit.data[index]["person"]),
@@ -71,7 +76,7 @@ class BookingPage extends StatelessWidget {
                         fieldCustom(
                             key: "السعر : ",
                             index,
-                            value: cubit.data[index]["priceLow"].toString()),
+                            value: (cubit.data[index]["priceLow"]).toString()),
                         const Gap(10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,

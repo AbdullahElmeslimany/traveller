@@ -1,7 +1,10 @@
+import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:traveller/model/constant/governorates_list.dart';
+import 'package:traveller/model/search_drop_down.dart';
 import 'package:traveller/model/textfromfieldcustom.dart';
 import 'package:traveller/modelview__/controller/controller/bookly_cubit/booking_cubit.dart';
 
@@ -11,6 +14,7 @@ bottomSheetCustom(BuildContext context, {required id, required place}) {
   TextEditingController padgetController =
       TextEditingController(text: "1000 : 4000");
   TextEditingController numRoomController = TextEditingController();
+  TextEditingController hotelController = TextEditingController();
   TextEditingController personNumController = TextEditingController();
   RangeValues currentRangeValues = const RangeValues(1000, 4000);
   final cubit = BlocProvider.of<BookingCubit>(context);
@@ -84,6 +88,15 @@ bottomSheetCustom(BuildContext context, {required id, required place}) {
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     )
                   ],
+                ),
+                const Gap(15),
+                CustomDropdown<Governorates>.search(
+                  hintText: 'الاماكن',
+                  items: hotels,
+                  excludeSelected: false,
+                  onChanged: (value) {
+                    hotelController.text = value.toString();
+                  },
                 ),
                 const Gap(20),
                 Row(
@@ -203,6 +216,7 @@ bottomSheetCustom(BuildContext context, {required id, required place}) {
                               end: endDayController.text,
                               person: personNumController.text,
                               room: numRoomController.text,
+                              hotel: hotelController.text,
                               id: id);
                         }
 
