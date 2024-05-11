@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
-import '../../modelview/controller/controller/bookly_cubit/booking_cubit.dart';
+import '../../modelview__/controller/controller/bookly_cubit/booking_cubit.dart';
 
 class BookingPage extends StatelessWidget {
   final id;

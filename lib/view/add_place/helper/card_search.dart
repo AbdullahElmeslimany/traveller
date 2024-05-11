@@ -1,7 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import '../../../modelview/controller/constant/list_p.dart';
+import '../../../modelview__/controller/constant/list_p.dart';
 import '../add_place.dart';
 
 cardDropDown(BuildContext context) {

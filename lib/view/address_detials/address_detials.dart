@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../modelview/cubit/get_postion/get_postion_cubit.dart';
+import '../../modelview__/logic__/get_postion/get_postion_cubit.dart';
 
 class AddressPage extends StatelessWidget {
   const AddressPage({super.key});

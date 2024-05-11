@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:traveller/view/login_signup/regester.dart';
-import '../../modelview/controller/controller/login_controller.dart';
+import '../../modelview__/controller/controller/login_controller.dart';
 import '../../model/textfromfieldcustom.dart';
-import '../../modelview/cubit/login_regester_cubit/login_and_regester_cubit.dart';
+import '../../modelview__/logic__/login_regester_cubit/login_and_regester_cubit.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

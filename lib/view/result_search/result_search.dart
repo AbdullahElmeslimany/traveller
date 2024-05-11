@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:traveller/model/constant/page_choose_list.dart';
 import 'package:traveller/model/constant/suggest_list.dart';
-import 'package:traveller/modelview/cubit/categoris_cubit/get_places_data_cubit.dart';
+import 'package:traveller/modelview__/logic__/categoris_cubit/get_places_data_cubit.dart';
 import '../detials_places/detials_places.dart';
 
 class ResiltSearchPage extends StatelessWidget {

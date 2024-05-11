@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 
-import '../../modelview/cubit/profile_cubit/get_data_profile_cubit.dart';
+import '../../modelview__/logic__/profile_cubit/get_data_profile_cubit.dart';
 import 'helper/body_items.dart';
 
 class Profile extends StatelessWidget {

@@ -55,11 +55,11 @@ class LoginAndRegesterCubit extends Cubit<LoginAndRegesterState> {
       const Duration(seconds: 5),
       () {
         emit(WaitingState());
-
         loading = false;
       },
     );
     try {
+      print("----------------------------------");
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
         email: email,
@@ -76,6 +76,8 @@ class LoginAndRegesterCubit extends Cubit<LoginAndRegesterState> {
         Get.to(() => MyHomePage(
               id: value.user!.uid,
             ));
+      }).catchError((e) {
+        print(e);
       });
 
       loading = false;

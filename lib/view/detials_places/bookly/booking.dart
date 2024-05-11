@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:traveller/model/textfromfieldcustom.dart';
-import 'package:traveller/modelview/controller/controller/bookly_cubit/booking_cubit.dart';
+import 'package:traveller/modelview__/controller/controller/bookly_cubit/booking_cubit.dart';
 
 bottomSheetCustom(BuildContext context, {required id, required place}) {
   TextEditingController startDayController = TextEditingController();

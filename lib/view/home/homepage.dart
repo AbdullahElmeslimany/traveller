@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:traveller/modelview/cubit/get_postion/get_postion_cubit.dart';
+import 'package:traveller/modelview__/logic__/get_postion/get_postion_cubit.dart';
 import 'package:traveller/view/booking_page/booking_page.dart';
 import 'package:traveller/view/home/homepage_helper/app_bar_custom.dart';
 import 'package:traveller/view/home/homepage_helper/benefits_card.dart';
 import 'package:traveller/view/home/homepage_helper/categories_homepage.dart';
 import 'package:traveller/view/home/homepage_helper/suggestion_homepage.dart';
-import 'package:traveller/modelview/dropdown_and_search/dropdown_and_search.dart';
+import 'package:traveller/modelview__/dropdown_and_search/dropdown_and_search.dart';
 
-import '../../modelview/cubit/categoris_cubit/get_places_data_cubit.dart';
+import '../../modelview__/logic__/categoris_cubit/get_places_data_cubit.dart';
 
 class MyHomePage extends StatelessWidget {
   final id;
