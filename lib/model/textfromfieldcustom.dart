@@ -9,6 +9,7 @@ textFromFieldcustom({
   TextInputType keyboardType = TextInputType.name,
   length = false,
   double width = 120,
+  int lengthTall = 350,
   required TextEditingController controller,
   required String text,
   String textHide = "",
@@ -23,7 +24,7 @@ textFromFieldcustom({
       obscureText: pass,
       textDirection: rtl == true ? TextDirection.ltr : TextDirection.rtl,
       maxLines: maxLines,
-      maxLength: length == true ? 350 : null,
+      maxLength: length == true ? lengthTall : null,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return '* يرجي اكمال البيانات';

@@ -9,7 +9,8 @@ import '../detials_places/detials_places.dart';
 
 class ResiltSearchPage extends StatelessWidget {
   final name;
-  const ResiltSearchPage({super.key, this.name});
+  final id;
+  const ResiltSearchPage({super.key, this.name, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -92,10 +93,11 @@ class ResiltSearchPage extends StatelessWidget {
                               return InkWell(
                                 onTap: () {
                                   Get.to(DetialslsPlease(
+                                      id: id,
                                       // photo: cubit.dataList[index]['photo'],
                                       video: cubit.dataList[index]['video'],
                                       name: cubit.dataList[index]['name'],
-                                      image: suggestList[index]["image"],
+                                      // image: suggestList[index]["image"],
                                       time: "15",
                                       data: cubit.dataList[index],
                                       detials: "detials"));

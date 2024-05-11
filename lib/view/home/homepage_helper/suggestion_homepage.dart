@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:traveller/model/constant/suggest_list.dart';
 import 'package:traveller/modelview/cubit/categoris_cubit/get_places_data_cubit.dart';
 
 import '../../detials_places/detials_places.dart';
 
-suggestHomePage(data) {
+suggestHomePage(data, {required id}) {
   return Container(
     margin: const EdgeInsets.only(top: 15, right: 10),
     child: Column(
@@ -52,11 +51,11 @@ suggestHomePage(data) {
                     return InkWell(
                       onTap: () {
                         Get.to(DetialslsPlease(
+                            id: id,
                             data: data.dataListAll[index],
-                            video:
-                                "https://firebasestorage.googleapis.com/v0/b/traveller-36475.appspot.com/o/Let's%20Go%20-%20Egypt%20-%20A%20Beautiful%20Destinations%20Original.mp4?alt=media&token=ec0ee8c8-f216-442a-8f7f-cd7463f40c27",
+                            video: data.dataListAll[index]["video"].toString(),
                             name: data.dataListAll[index]["name"].toString(),
-                            image: data.dataListAll[index]["photo"].toString(),
+                            // image: data.dataListAll[index]["photo"].toString(),
                             time: data.dataListAll[index]["time"].toString(),
                             detials:
                                 data.dataListAll[index]["time"].toString()));

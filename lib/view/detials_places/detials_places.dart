@@ -5,27 +5,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:traveller/model/textfromfieldcustom.dart';
+import 'package:traveller/view/detials_places/suggest_bookly/suggest_booking.dart';
 import 'package:traveller/view/home/homepage.dart';
 import 'package:video_player/video_player.dart';
 
 import '../video/cubit/data_get_cubit.dart';
+import 'bookly/booking.dart';
 
 class DetialslsPlease extends StatefulWidget {
   final String name;
-  final image;
   final String time;
   final String detials;
   final String video;
   final data;
+  final id;
 
   const DetialslsPlease({
     Key? key,
     required this.name,
-    required this.image,
     required this.time,
     required this.detials,
     required this.video,
     required this.data,
+    required this.id,
   }) : super(key: key);
 
   @override
@@ -191,25 +194,6 @@ class _DetialslsPleaseState extends State<DetialslsPlease> {
                 ),
               ),
               const Gap(10),
-              const Row(
-                children: [
-                  // Padding(
-                  //   padding: EdgeInsets.all(8.0),
-                  //   child: Text(
-                  //     "تفاصيل",
-                  //     style:
-                  //         TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                  //   ),
-                  // ),
-                ],
-              ),
-              // Container(
-              //   margin: const EdgeInsets.all(15),
-              //   child: const Text(
-              // "تقع هذه المحمية عند التقاء خليج السويس وخليج العقبة، وتمثل الحافة الشرقية لمحمية رأس محمد حائطاً صخرياً مع مياه الخليج الذي توجد به الشعاب المرجانية، كما توجد قناة المانجروف التي تفصل بين شبه جزيرة رأس محمد وجزيرة البعيرة بطول حوالي 250 م. وتتميز منطقة رأس محمد بالشواطئ المرجانية الموجودة في أعماق المحيط المائى لرأس محمد والأسماك الملونة والسلاحف البحرية المهددة بالانقراض والأحياء المائية النادرة، وتحيط الشعاب المرجانية برأس محمد من كافه جوانبها البحرية كما تشكل تكوينا فريدا حيث أن هذا التكوين له الأثر الكبير في تشكيل الحياة الطبيعية بالمنطقة كما تشكل الانهيارات الأرضية «الزلازل» تكوين الكهوف المائية أسفل الجزيرة كما أن المحمية موطن للعديد من الطيور والحيوانات الهامة مثل: الوعل النوبى بالمناطق الجبلية وأنواع الثدييات الصغيرة والزواحف والحشرات والتي لا تظهر إلا بالليل، كما أن المحمية موطن للعديد من الطيورالهامة مثل البلشونات والنوارس. وتعتبر مساحتها 480 كم. وتمتاز بطقس شديد الحرارة صيفا ومعتدل شتاء. لماذا اعلنت راس محمد محمية طبيعية....اعلنت راس محمد محمية طبيعية لما تحتوية على عدد من الأنظمة الايدلوجية الهامة وعالية الحساسية مثل (الشعب المرجانية، وبيئة المنجروف. وبيئة الادوية الصحراوية، والبئات الساحلية وتتمثل في سهول طينية واراضى ملحية، وبيئة الحشائش البحرية وهذه المحمية من أشهر معالم سيناء)",
-              //   style: TextStyle(fontSize: 13, color: Colors.grey),
-              // ),
-              // ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -223,8 +207,9 @@ class _DetialslsPleaseState extends State<DetialslsPlease> {
                             borderRadius: BorderRadius.circular(10)),
                         child: MaterialButton(
                           onPressed: () {
-                            Get.snackbar("تم الحجز بنجاح", "");
-                            Get.offAll(const MyHomePage());
+                            bottomSheetCustom(context,
+                                id: widget.id, place: widget.name);
+                            // boolySuggetSheet(context);
                           },
                           child: Text(
                             "احجز الان",

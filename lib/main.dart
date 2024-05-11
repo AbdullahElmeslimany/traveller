@@ -10,6 +10,7 @@ import 'modelview/cubit/Add_Project_cubit/add_place_cubit.dart';
 import 'modelview/cubit/categoris_cubit/get_places_data_cubit.dart';
 import 'modelview/cubit/get_postion/get_postion_cubit.dart';
 import 'modelview/cubit/login_regester_cubit/login_and_regester_cubit.dart';
+import 'modelview/controller/controller/bookly_cubit/booking_cubit.dart';
 import 'view/video/cubit/data_get_cubit.dart';
 import 'view/video/photo.dart';
 import 'view/video/video.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => GetPlacesDataCubit()),
         BlocProvider(create: (context) => GetDataProfileCubit()),
         BlocProvider(create: (context) => DataGetCubit()),
+        BlocProvider(create: (context) => BookingCubit()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,

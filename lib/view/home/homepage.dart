@@ -2,7 +2,9 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:traveller/modelview/cubit/get_postion/get_postion_cubit.dart';
+import 'package:traveller/view/booking_page/booking_page.dart';
 import 'package:traveller/view/home/homepage_helper/app_bar_custom.dart';
 import 'package:traveller/view/home/homepage_helper/benefits_card.dart';
 import 'package:traveller/view/home/homepage_helper/categories_homepage.dart';
@@ -12,7 +14,8 @@ import 'package:traveller/modelview/dropdown_and_search/dropdown_and_search.dart
 import '../../modelview/cubit/categoris_cubit/get_places_data_cubit.dart';
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  final id;
+  const MyHomePage({Key? key, this.id}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<GetPostionCubit>(context);
@@ -39,17 +42,38 @@ class MyHomePage extends StatelessWidget {
                   children: [
                     appBarCustom(
                         address: cubit.placemark[0].subAdministrativeArea!),
-                    FadeInDown(
-                      child: const Text(
-                        "المال ليس الغاية\nالوحيدة للسفر",
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        FadeInDown(
+                          child: const Text(
+                            "المال ليس الغاية\nالوحيدة للسفر",
+                            style: TextStyle(
+                                fontSize: 22, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(BookingPage(
+                                id: id,
+                              ));
+                            },
+                            child: Image.asset(
+                              "assets/icons/booking.png",
+                              height: 30,
+                              width: 30,
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                     const Gap(10),
-                    dropDownAndSearch(),
+                    dropDownAndSearch(id: id),
                     categoriesHomePage(),
-                    suggestHomePage(cubitData),
+                    suggestHomePage(cubitData, id: id),
                     benefitsCard(context)
                   ],
                 )

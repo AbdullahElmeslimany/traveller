@@ -23,7 +23,9 @@ class LoginAndRegesterCubit extends Cubit<LoginAndRegesterState> {
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password)
-          .then((value) => Get.to(() => MyHomePage()));
+          .then((value) => Get.to(() => MyHomePage(
+                id: value.user!.uid,
+              )));
       loading = false;
 
       emit(SignUpSuccessState());
@@ -71,7 +73,9 @@ class LoginAndRegesterCubit extends Cubit<LoginAndRegesterState> {
           "admin": admin,
           "Uid": value.user!.uid
         });
-        Get.to(() => MyHomePage());
+        Get.to(() => MyHomePage(
+              id: value.user!.uid,
+            ));
       });
 
       loading = false;
